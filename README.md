@@ -130,11 +130,5 @@ If you see NLTK errors, download the required data:
 python -c "import nltk; nltk.download('stopwords'); nltk.download('wordnet'); nltk.download('omw-1.4')"
 ```
 
-## License
-
-[Add your license here]
-
-## Contributors
-
-[Add contributors here]
-# Legal-Management-Deployment
+## Link to access this is here:
+https://legal-management-system.streamlit.app/
