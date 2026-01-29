@@ -6,7 +6,7 @@ altair==4.2.2
 pandas==2.2.3
 numpy==1.26.4
 
-# ML/NLP
+# ML / NLP
 scikit-learn==1.6.1
 nltk==3.9.1
 sentence-transformers==3.4.1
@@ -21,9 +21,9 @@ langchain-chroma==0.2.1
 langchain-huggingface==0.1.2
 langchain-qdrant==0.2.0
 
-# Vector database
+# Vector databases
 chromadb==0.6.3
-qdrant-client==1.13.2
+qdrant-client==1.16.2
 
 # Hugging Face
 datasets==3.2.0
