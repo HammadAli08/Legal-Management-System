@@ -16,16 +16,15 @@ from langchain_qdrant import QdrantVectorStore
 from qdrant_client import QdrantClient
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_groq import ChatGroq
-from langchain_classic.chains import create_retrieval_chain, create_history_aware_retriever
-from langchain_classic.chains.combine_documents import create_stuff_documents_chain
+from langchain.chains import create_retrieval_chain, create_history_aware_retriever
+from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.messages import HumanMessage, AIMessage
 
 # --- NEW IMPORTS FOR RERANKING ---
-from langchain_classic.retrievers import ContextualCompressionRetriever
+from langchain.retrievers import ContextualCompressionRetriever
 from langchain_classic.retrievers.document_compressors import CrossEncoderReranker
-from langchain_community.cross_encoders import HuggingFaceCrossEncoder
-
+from langchain.retrievers.document_compressors import CrossEncoderReranker
 # Page config
 st.set_page_config(page_title="Legal Case Management & Precedent Search", layout="wide")
 
@@ -268,3 +267,4 @@ if mode == "Legal Assistant (Chat)":
                 st.session_state.chat_history.append(AIMessage(content=answer))
             except Exception as e:
                 st.error(f"Error: {e}")
+
