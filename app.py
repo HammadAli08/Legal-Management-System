@@ -11,7 +11,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-# --- CORRECTED IMPORTS FOR QDRANT & LANGCHAIN ---
+# --- UPDATED IMPORTS FOR QDRANT & LANGCHAIN ---
 from langchain_qdrant import QdrantVectorStore
 from qdrant_client import QdrantClient
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -21,10 +21,11 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.messages import HumanMessage, AIMessage
 
-# --- NEW IMPORTS FOR RERANKING ---
+# --- UPDATED IMPORTS FOR RERANKING ---
 from langchain.retrievers import ContextualCompressionRetriever
-from langchain_classic.retrievers.document_compressors import CrossEncoderReranker
 from langchain.retrievers.document_compressors import CrossEncoderReranker
+from langchain_community.cross_encoders import HuggingFaceCrossEncoder
+
 # Page config
 st.set_page_config(page_title="Legal Case Management & Precedent Search", layout="wide")
 
@@ -177,7 +178,7 @@ if mode == "Legal Assistant (Chat)":
             compressor = CrossEncoderReranker(model=model, top_n=5)
             compression_retriever = ContextualCompressionRetriever(base_compressor=compressor, base_retriever=base_retriever)
 
-            llm = ChatGroq(model_name="openai/gpt-oss-20b", api_key=GROQ_API_KEY, temperature=0.1)
+            llm = ChatGroq(model_name="llama-3.3-70b-versatile", api_key=GROQ_API_KEY, temperature=0.1)
 
             # Memory Step 1: Contextualize Question
             contextualize_q_system_prompt = (
@@ -267,4 +268,3 @@ if mode == "Legal Assistant (Chat)":
                 st.session_state.chat_history.append(AIMessage(content=answer))
             except Exception as e:
                 st.error(f"Error: {e}")
-
