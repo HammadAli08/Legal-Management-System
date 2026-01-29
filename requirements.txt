@@ -4,7 +4,7 @@ altair==5.5.0
 
 # Data processing
 pandas==2.2.3
-numpy==2.2.3
+numpy==1.26.4
 
 # ML/NLP
 scikit-learn==1.6.1
